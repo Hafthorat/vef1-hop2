@@ -981,7 +981,11 @@
 	          div = document.querySelector('.videos');
 	          categories.forEach(function (category) {
 	            var title = category.title;
+	            var videos = category.videos;
 	            div.appendChild(el('div', el('h2', title)));
+	            videos.forEach(function (video) {
+	              document.querySelector('.videos').appendChild(el('h3', video.toString()));
+	            });
 	          });
 	          /*earthquakes.forEach((quake) => {
 	             const { title, mag, time, url } = quake.properties;

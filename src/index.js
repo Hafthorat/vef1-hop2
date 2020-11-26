@@ -32,11 +32,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   categories.forEach((category) => {
 
     const title = category.title;
+    const videos = category.videos;
+
+
     div.appendChild(
       el('div',
-        el('h2', title)
-      )
+        el('h2', title),
+      ),
     )
+
+    videos.forEach((video) => {
+      document.querySelector('.videos').appendChild(
+        el('h3', video.toString())
+      )
+    })
 
   })
 
@@ -91,5 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const list = new List();
     list.load();
   }*/
+
+
 
 });
