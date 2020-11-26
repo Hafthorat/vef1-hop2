@@ -32,19 +32,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   categories.forEach((category) => {
 
     const title = category.title;
-    const videos = category.videos;
+    const catVideos = category.videos;
+
+    const catDiv = el('div');
+    catDiv.classList.add('video__category');
+    div.appendChild(catDiv);
+
+    const heading = el('h2', title);
+    heading.classList.add('category__title');
+    catDiv.appendChild(heading);
+
+    catVideos.forEach((catVideo) => {
+      const catVidDiv = el('div');
+      catVidDiv.classList.add('video__eachvideo');
+      catDiv.appendChild(catVidDiv);
 
 
-    div.appendChild(
-      el('div',
-        el('h2', title),
-      ),
-    )
 
-    videos.forEach((video) => {
-      document.querySelector('.videos').appendChild(
-        el('h3', video.toString())
-      )
     })
 
   })

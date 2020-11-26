@@ -981,10 +981,17 @@
 	          div = document.querySelector('.videos');
 	          categories.forEach(function (category) {
 	            var title = category.title;
-	            var videos = category.videos;
-	            div.appendChild(el('div', el('h2', title)));
-	            videos.forEach(function (video) {
-	              document.querySelector('.videos').appendChild(el('h3', video.toString()));
+	            var catVideos = category.videos;
+	            var catDiv = el('div');
+	            catDiv.classList.add('video__category');
+	            div.appendChild(catDiv);
+	            var heading = el('h2', title);
+	            heading.classList.add('category__title');
+	            catDiv.appendChild(heading);
+	            catVideos.forEach(function (catVideo) {
+	              var catVidDiv = el('div');
+	              catVidDiv.classList.add('video__eachvideo');
+	              catDiv.appendChild(catVidDiv);
 	            });
 	          });
 	          /*earthquakes.forEach((quake) => {
