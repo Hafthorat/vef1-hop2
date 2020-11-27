@@ -3,18 +3,53 @@ import { el, element, formatDate } from './lib/utils';
 
 function msToTime(curDate, dateCreated) {
   var elapsed = curDate - dateCreated;
+  var timi = "";
   var hours = Math.floor(elapsed / (1000 * 60 * 60));
   if (hours < 24) {
-    return "Fyrir " + hours + " klukkustundum síðan";
+    if (hours === 1) {
+      timi = "klukkustund";
+    } else {
+      timi = "klukkustundum";
+    }
+    return "Fyrir " + hours + " " + timi + " síðan";
   } else if (hours/24 >= 1 && hours/24 < 7) {
-    return "Fyrir " + Math.floor(hours/24) + " dögum síðan";
+    if (Math.floor(hours/24) === 1) {
+      timi = "degi";
+    } else {
+      timi = "dögum";
+    }
+    return "Fyrir " + Math.floor(hours/24) + " " + timi + " síðan";
   } else if (hours/24 >= 7 && hours/24 < 30) {
-    return "Fyrir " + Math.floor(hours/24/7) + " vikum síðan";
+    if (Math.floor(hours/24/7) === 1) {
+      timi = "viku";
+    } else {
+      timi = "vikum";
+    }
+    return "Fyrir " + Math.floor(hours/24/7) + " " + timi + " síðan";
   } else if (hours/24 >= 30 && hours/24 < 365) {
-    return "Fyrir " + Math.floor(hours/24/30) + " mánuðum síðan";
+    if (Math.floor(hours/24/30) === 1) {
+      timi = "mánuði";
+    } else {
+      timi = "mánuðum";
+    }
+    return "Fyrir " + Math.floor(hours/24/30) + " " + timi + " síðan";
   } else {
-    return "Fyrir " + Math.floor(hours/24/365) + " árum síðan";
+    if (Math.floor(hours/24/365) === 1) {
+      timi = "ári";
+    } else {
+      timi = "árum";
+    }
+    return "Fyrir " + Math.floor(hours/24/365) + " " + timi + " síðan";
   }
+}
+
+function sToMinSec(duration) {
+  var min = Math.floor(duration/60);
+  var sec = duration-min*60;
+  if (sec.toString().length == 1) {
+    sec = "0" + sec;
+  }
+  return min + ":" + sec;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -57,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     catDiv.appendChild(heading);
 
     catVideos.forEach((catVideo) => {
+
       const catVidDiv = el('div');
       catVidDiv.classList.add('video__eachvideo');
       catDiv.appendChild(catVidDiv);
@@ -84,9 +120,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           const vidTitle = el('h3', video.title);
           const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
-          console.log(msToTime(curDate, dateCreated).toString());
+          //console.log(msToTime(curDate, dateCreated).toString());
           contDiv.appendChild(vidTitle);
           contDiv.appendChild(vidCreated);
+
+          const duration = video.duration;
+          const vidDuration = el('h5', sToMinSec(duration).toString());
+          contDiv.appendChild(vidDuration);
 
         }
 
