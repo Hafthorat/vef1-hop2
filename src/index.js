@@ -76,83 +76,84 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadVideoPage(data);
   }
 
-  if (currentPage.classList.contains('video__page')) {
+  if (currentPage.classList.contains('video__index')) {
     console.log('Þetta er index.html, tal hammó');
     loadVideoList(data);
   }
 
+});
 
 
-  function loadVideoList(data) {
-    console.log(data);
-    // console.log(data);
+function loadVideoList(data) {
+  console.log(data);
+  // console.log(data);
 
-    const videos = data.videos;
-    const categories = data.categories;
+  const videos = data.videos;
+  const categories = data.categories;
 
-    console.log(videos);
-    console.log(categories);
+  console.log(videos);
+  console.log(categories);
 
-    const div = document.querySelector('.videos');
+  const div = document.querySelector('.videos');
 
-    categories.forEach((category) => {
+  categories.forEach((category) => {
 
-      const title = category.title;
-      const catVideos = category.videos;
+    const title = category.title;
+    const catVideos = category.videos;
 
-      const catDiv = el('div');
-      catDiv.classList.add('video__category');
-      div.appendChild(catDiv);
+    const catDiv = el('div');
+    catDiv.classList.add('video__category');
+    div.appendChild(catDiv);
 
-      const heading = el('h2', title);
-      heading.classList.add('category__title');
-      catDiv.appendChild(heading);
+    const heading = el('h2', title);
+    heading.classList.add('category__title');
+    catDiv.appendChild(heading);
 
-      catVideos.forEach((catVideo) => {
+    catVideos.forEach((catVideo) => {
 
-        const catVidDiv = el('div');
-        catVidDiv.classList.add('video__eachvideo');
-        catDiv.appendChild(catVidDiv);
+      const catVidDiv = el('div');
+      catVidDiv.classList.add('video__eachvideo');
+      catDiv.appendChild(catVidDiv);
 
-        videos.forEach((video) => {
+      videos.forEach((video) => {
 
-          const id = video.id;
+        const id = video.id;
 
-          if (catVideo === id) {
+        if (catVideo === id) {
 
-            const imgDiv = el('div');
-            imgDiv.classList.add('video__image');
-            catVidDiv.appendChild(imgDiv);
+          const imgDiv = el('div');
+          imgDiv.classList.add('video__image');
+          catVidDiv.appendChild(imgDiv);
 
-            const contDiv = el('div');
-            contDiv.classList.add('video__content');
-            catVidDiv.appendChild(contDiv);
+          const contDiv = el('div');
+          contDiv.classList.add('video__content');
+          catVidDiv.appendChild(contDiv);
 
-            const img = el('img');
-            img.setAttribute('src', video.poster);
-            imgDiv.appendChild(img);
+          const img = el('img');
+          img.setAttribute('src', video.poster);
+          imgDiv.appendChild(img);
 
-            const dateCreated = video.created;
-            const curDate = new Date().getTime();
+          const dateCreated = video.created;
+          const curDate = new Date().getTime();
 
-            const vidTitle = el('h3', video.title);
-            const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
-            //console.log(msToTime(curDate, dateCreated).toString());
-            contDiv.appendChild(vidTitle);
-            contDiv.appendChild(vidCreated);
+          const vidTitle = el('h3', video.title);
+          const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
+          //console.log(msToTime(curDate, dateCreated).toString());
+          contDiv.appendChild(vidTitle);
+          contDiv.appendChild(vidCreated);
 
-            const duration = video.duration;
-            const vidDuration = el('h5', sToMinSec(duration).toString());
-            contDiv.appendChild(vidDuration);
+          const duration = video.duration;
+          const vidDuration = el('h5', sToMinSec(duration).toString());
+          contDiv.appendChild(vidDuration);
 
-          }
-
-        })
+        }
 
       })
 
     })
-  }
 
-});
+  })
+}
+
+
 
