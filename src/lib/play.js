@@ -29,11 +29,11 @@ export function loadVideoPage(data) {
   const videoDesc = document.createElement("p");
 
   // Búum til button element
-  const btnBack3sec = document.createElement("button")
-  const btnPlayPause = document.createElement("button")
-  const btnMuteUnmute = document.createElement("button")
-  const btnFullscreen = document.createElement("button")
-  const btnForward3sec = document.createElement("button")
+  const btnBack3sec = document.createElement("button");
+  const btnPlayPause = document.createElement("button");
+  const btnMuteUnmute = document.createElement("button");
+  const btnFullscreen = document.createElement("button");
+  const btnForward3sec = document.createElement("button");
 
   // Setjum id á buttons
 
@@ -43,7 +43,7 @@ export function loadVideoPage(data) {
   btnFullscreen.id = "btnFullscreen";
   btnForward3sec.id = "btnForward3sec";
 
-  // Setjum clasa á element
+  // Setjum class á element
   playdiv.classList.add('play__container');
   videodiv.classList.add('video__container');
   playButtons.classList.add('playButtons');
@@ -68,6 +68,10 @@ export function loadVideoPage(data) {
   playButtons.appendChild(btnFullscreen);
   playButtons.appendChild(btnForward3sec);
   playdiv.appendChild(videoDesc);
+
+  // Sendum gögn af videos og fylki af related videos í fall sem birtir þau
+  loadRelatedVideoThumbnails(data, videoForPlayback.related);
+
 }
 
 function getVideoIdFromUrl() {
@@ -89,7 +93,25 @@ function getVideoFromId(data, videoId) {
 
 /**
  * TODO:
+ * Refactora loadVideoList()?
  */
-export function loadRelatedVideoThumbnails() { //Stela af video__list sem er á index?
+
+function loadRelatedVideoThumbnails(data, Related) {
+
+  // Búum til element
+  const relatedContainer = document.createElement('div'); //video category
+  const relatedTitle = document.createElement('h2');
+  const videoEachVideo = document.createElement('div');
+  const videoImage = document.createElement('div');
+  //cosnt img =
+  const videoContent = document.createElement('div');
+
+  // Setjum class á element
+  relatedContainer.classList.add('video__category');
+  relatedTitle = classList.add('category__title');
+  videoEachVideo = classList.add('video__eachvideo');
+  videoImage = classList.add('video__image');
+
+
 
 }
