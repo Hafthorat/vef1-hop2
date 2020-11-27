@@ -1,4 +1,5 @@
 import { fetchVideos } from './lib/videos';
+import { loadVideoPage } from './lib/play';
 import { el, element, formatDate } from './lib/utils';
 //import List from './lib/list';
 //import Lecture from './lib/lecture';
@@ -18,6 +19,25 @@ document.addEventListener('DOMContentLoaded', async () => {
       el('p', 'Villa við að sækja gögn')
     );
   }
+
+  const currentPage = document.querySelector('body');
+
+  if (currentPage.classList.contains('video__page')){
+    console.log('Þetta er video page, til hammó');
+    loadVideoPage(data);
+  }
+
+
+  /**
+   * Hér þarf að setja neðangreindan kóða í sitt eigið fall sem
+   * kallað er á þegar 'DOMContentLoaded' virkjast ef page er
+   * index síða
+   *
+   * Kata gerði kóðann hér fyrir neðan.
+   */
+
+
+
 
   console.log(data);
 
@@ -104,7 +124,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     const list = new List();
     list.load();
   }*/
-
-
 
 });
