@@ -1,9 +1,10 @@
 @import './config';
 
 .grid {
+  background-color: #ddd;
   margin: 0 auto;
   max-width: $max-width;
-  background-color: #ddd;
+  width: calc(100vw - (2 * 20px));
 }
 
 .row {
@@ -53,7 +54,7 @@
   }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 500px) {
   @for $i from 1 through $columns {
     .col-sm-#{$i} {
       width: ($i/$columns * 100 * 1%);

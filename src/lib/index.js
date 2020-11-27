@@ -108,6 +108,10 @@ function loadVideoList(data) {
 
     loadHelper(videos, catVideos, cataDiv);
 
+    const catLine = el('hr');
+    catLine.classList.add('line');
+    div.appendChild(catLine);
+
   })
 }
 
@@ -156,9 +160,11 @@ export function loadHelper(videos, classVideos, cataDiv) {
 
       }
 
-    })
 
+
+    })
   })
+
 
 }
 
