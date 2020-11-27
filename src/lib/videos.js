@@ -9,9 +9,8 @@
  * að nota það á meðan þróun stendur en skipta svo út.
  */
 
+//const URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson';
 const URL = './videos.json';
-// const URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson';
-// const URL = './4.5_week.geojson';
 
 export async function fetchVideos() {
   // Sækja gögn frá URL, setja upp villumeðhöndlun og skila
