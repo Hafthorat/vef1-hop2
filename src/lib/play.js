@@ -1,66 +1,95 @@
-import { fetchVideos } from '../lib/videos';
-import { el, element, formatDate } from '../lib/utils';
-
-/* document.addEventListener('DOMContentLoaded', async () => {
-}) */
-
-export function loadVideoPage(data) {
-
-  const videoId = getVideoIdFromUrl();
+import {
+  fetchVideos
+} from '../lib/videos';
+import {
+  el,
+  element,
+  formatDate
+} from '../lib/utils';
 
 /**
  * TODO:
  * Gera fall sem checkar hvort það hafi tekist að ná í id frá
- * URL í getVideoFromUrl()
- * Mögulega bara setja try catch í getVideoFromUrl()
+ *  URL í getVideoFromUrl(), mögulega bara setja try catch í getVideoFromUrl()
  */
-/*   if (videoId === null) {
-    window.location.href("http://www.w3schools.com");
-    return
-  } */
 
-  const videoUrl = getvideoUrlfromId(data, videoId);
 
-  console.log("video ID: " + videoId);
+export function loadVideoPage(data) {
 
+  const videoId = getVideoIdFromUrl();
+  const videoForPlayback = getVideoFromId(data, videoId);
   const elbody = document.querySelector("body");
-  const playdiv = document.createElement("div");
-  const controldiv = document.createElement("div");
-  const videodiv = document.createElement("div");
-  const videoel = document.createElement("video");
 
+  // Búum til elements
+  const playdiv = document.createElement("div");
+  const playButtons = document.createElement("div");
+  const videodiv = document.createElement("div");
+  const videoPlayer = document.createElement("video");
+  const videoh1 = document.createElement("h2");
+  const videoDesc = document.createElement("p");
+
+  // Búum til button element
+  const btnBack3sec = document.createElement("button")
+  const btnPlayPause = document.createElement("button")
+  const btnMuteUnmute = document.createElement("button")
+  const btnFullscreen = document.createElement("button")
+  const btnForward3sec = document.createElement("button")
+
+  // Setjum id á buttons
+
+  btnBack3sec.id = "btnBack3sec";
+  btnPlayPause.id = "btnPlayPause";
+  btnMuteUnmute.id = "btnMuteUnmute";
+  btnFullscreen.id = "btnFullscreen";
+  btnForward3sec.id = "btnForward3sec";
+
+  // Setjum clasa á element
   playdiv.classList.add('play__container');
   videodiv.classList.add('video__container');
-  controldiv.classList.add('video__controls');
-  videoel.classList.add('video__target');
+  playButtons.classList.add('playButtons');
+  videoPlayer.classList.add('video__target');
+  videoh1.classList.add('video__title');
+  videoDesc.classList.add('video__description');
 
-  videoel.setAttribute('src', );
+  // Setjum viðeigandi attributes á element
+  videoh1.innerHTML = videoForPlayback.title.toString();
+  videoDesc.innerHTML = videoForPlayback.description.toString();
+  videoPlayer.setAttribute('src', ( '.' + videoForPlayback.video.toString()))
 
+  // Setjum element undir foreldri
   elbody.appendChild(playdiv);
+  playdiv.appendChild(videoh1);
   playdiv.appendChild(videodiv);
-  videodiv.appendChild(videoel);
-  playdiv.appendChild(controldiv);
-
+  videodiv.appendChild(videoPlayer);
+  playdiv.appendChild(playButtons);
+  playButtons.appendChild(btnBack3sec);
+  playButtons.appendChild(btnPlayPause);
+  playButtons.appendChild(btnMuteUnmute);
+  playButtons.appendChild(btnFullscreen);
+  playButtons.appendChild(btnForward3sec);
+  playdiv.appendChild(videoDesc);
 }
 
-
-function getVideoIdFromUrl(){
+function getVideoIdFromUrl() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  console.log('Þetta er video ID frá URL: ' + urlParams.get('id'));
   return urlParams.get('id');
 }
 
-function getvideoUrlfromId(data, videoId){
+function getVideoFromId(data, videoId) {
   const videos = data.videos;
-
-  console.log('Þetta er data' + data);
-  console.log('Þetta er videos úr data' + videos);
-
   for (let video of videos) {
-    if (parseInt(video.id) === parseInt(id)) { //TODO: staðfesta að if condition virkar
-      console.log('Skilagildi úr getVideoUrlfromId() :' + video);
+    if (video.id == videoId) { //Viljandi haft == en ekki === svo að JS casti types
+      console.log('Þetta er video sem á að spila: ');
+      console.log(video);
       return video;
     }
   }
+}
+
+/**
+ * TODO:
+ */
+export function loadRelatedVideoThumbnails() { //Stela af video__list sem er á index?
+
 }
