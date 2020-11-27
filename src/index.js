@@ -2,6 +2,36 @@ import { fetchVideos } from './lib/videos';
 import { loadVideoPage } from './lib/play';
 import { el, element, formatDate } from './lib/utils';
 
+document.addEventListener('DOMContentLoaded', async () => {
+
+  const data = await fetchVideos();
+
+  // Fjarlægjum loading skilaboð eftir að við höfum sótt gögn
+  const loading = document.querySelector('.loading');
+  const parent = loading.parentNode;
+  parent.removeChild(loading);
+
+  // Checkað hvort að gögn hafi skilað sér, býr til skilaboð til notenda ef það klikkar
+  if (!data) {
+    parent.appendChild(
+      el('p', 'Villa við að sækja gögn')
+    );
+  }
+
+  const currentPage = document.querySelector('body');
+
+  if (currentPage.classList.contains('video__page')){
+    console.log('Þetta er video page, til hammó');
+    loadVideoPage(data);
+  }
+
+  if (currentPage.classList.contains('video__index')) {
+    console.log('Þetta er index.html, til hammó');
+    loadVideoList(data);
+  }
+
+});
+
 function msToTime(curDate, dateCreated) {
   var elapsed = curDate - dateCreated;
   var timi = "";
@@ -53,37 +83,11 @@ function sToMinSec(duration) {
   return min + ":" + sec;
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-
-  const data = await fetchVideos();
-
-  // Fjarlægjum loading skilaboð eftir að við höfum sótt gögn
-  const loading = document.querySelector('.loading');
-  const parent = loading.parentNode;
-  parent.removeChild(loading);
-
-  // Óþarfi?
-  if (!data) {
-    parent.appendChild(
-      el('p', 'Villa við að sækja gögn')
-    );
-  }
-
-  const currentPage = document.querySelector('body');
-
-  if (currentPage.classList.contains('video__page')){
-    console.log('Þetta er video page, til hammó');
-    loadVideoPage(data);
-  }
-
-  if (currentPage.classList.contains('video__index')) {
-    console.log('Þetta er index.html, tal hammó');
-    loadVideoList(data);
-  }
-
-});
 
 
+/**
+ * Gætum sett þetta í sitt eigið .js skjal
+ */
 function loadVideoList(data) {
   console.log(data);
   // console.log(data);
