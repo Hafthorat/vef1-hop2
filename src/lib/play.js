@@ -6,14 +6,21 @@ import { el, element, formatDate } from '../lib/utils';
 
 export function loadVideoPage(data) {
 
-  /**
-   * TODO:
-   * Vinna rétt með inntakið data
-   * Gera ekki aftur fetch
-   */
-
   const videoId = getVideoIdFromUrl();
+
+/**
+ * TODO:
+ * Gera fall sem checkar hvort það hafi tekist að ná í id frá
+ * URL í getVideoFromUrl()
+ * Mögulega bara setja try catch í getVideoFromUrl()
+ */
+/*   if (videoId === null) {
+    window.location.href("http://www.w3schools.com");
+    return
+  } */
+
   const videoUrl = getvideoUrlfromId(data, videoId);
+
   console.log("video ID: " + videoId);
 
   const elbody = document.querySelector("body");
