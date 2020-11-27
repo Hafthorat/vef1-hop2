@@ -1,6 +1,27 @@
+@import './config';
+
 /*
 Fyrir play og payse takkana
 */
+.videotest{
+  width: 100%;
+}
+
+.headercontent {
+  text-align: center;
+  align-items: center;
+}
+
+.headingtitle {
+  text-align: center;
+  align-items: center;
+}
+
+.video {
+  align-items: center;
+}
+
+
 
 .Playclass-button {
   display: none;
@@ -30,6 +51,13 @@ Fyrir play og payse takkana
   .unmuteclass-button {
     display: none;
   }
+
+  .videoimg {
+  cursor: pointer;
+  height: 50px;
+  margin: 0 0.5rem;
+  width: 50px;
+  }
   
   
   .unmuteclass-button-visable {
@@ -37,9 +65,6 @@ Fyrir play og payse takkana
     }
   
 
-.video {
-  position: relative;
-}
 .currVideo {
   position: relative;
 }
@@ -51,6 +76,8 @@ Fyrir play og payse takkana
   width: 50px;
 }
 
+
+
 video {
   cursor: pointer;
   width: 100%;
@@ -60,26 +87,21 @@ video {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 1rem;
 }
 
 .overlay {
   height: 50px;
   position: absolute;
-  top: 50%;
-  width: 100%;
+   width: 100%;
+   bottom: 54%;
+   right: 0%;
+
 }
 
 .overlay-hidden {
   display: none;
 }
 
-
-#overlay{
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
 
 
