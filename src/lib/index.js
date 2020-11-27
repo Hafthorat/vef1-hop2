@@ -98,10 +98,6 @@ function loadVideoList(data) {
     const title = category.title;
     const catVideos = category.videos;
 
-    /*const catDiv = el('div');
-    catDiv.classList.add('video__category');
-    div.appendChild(catDiv);*/
-
     const heading = el('h2', title);
     heading.classList.add('category__title');
     div.appendChild(heading);
