@@ -89,14 +89,14 @@ function sToMinSec(duration) {
  * Gætum sett þetta í sitt eigið .js skjal
  */
 function loadVideoList(data) {
-  console.log(data);
+  // console.log(data);
   // console.log(data);
 
   const videos = data.videos;
   const categories = data.categories;
 
-  console.log(videos);
-  console.log(categories);
+  // console.log(videos);
+  // console.log(categories);
 
   const div = document.querySelector('.videos');
 
@@ -113,7 +113,9 @@ function loadVideoList(data) {
     heading.classList.add('category__title');
     catDiv.appendChild(heading);
 
-    catVideos.forEach((catVideo) => {
+    loadHelper(videos, catVideos, catDiv);
+
+    /*catVideos.forEach((catVideo) => {
 
       const catVidDiv = el('div');
       catVidDiv.classList.add('video__eachvideo');
@@ -154,10 +156,68 @@ function loadVideoList(data) {
 
       })
 
-    })
+    })*/
 
   })
 }
 
+//videos = data.videos, videoArray = videos.related eða categories.videos
+ export function loadHelper(videos, classVideos, catDiv) {
+
+  classVideos.forEach((classVideo) => {
+
+    const catVidDiv = el('div');
+    catVidDiv.classList.add('video__eachvideo');
+    catDiv.appendChild(catVidDiv);
+
+    videos.forEach((video) => {
+
+      const id = video.id;
+
+      if (classVideo === id) {
+
+        const imgDiv = el('div');
+        imgDiv.classList.add('video__image');
+        catVidDiv.appendChild(imgDiv);
+
+        const contDiv = el('div');
+        contDiv.classList.add('video__content');
+        catVidDiv.appendChild(contDiv);
+
+        const img = el('img');
+        img.setAttribute('src', video.poster);
+        imgDiv.appendChild(img);
+
+        const dateCreated = video.created;
+        const curDate = new Date().getTime();
+
+        const vidTitle = el('h3', video.title);
+        const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
+        contDiv.appendChild(vidTitle);
+        contDiv.appendChild(vidCreated);
+
+        const duration = video.duration;
+        const vidDuration = el('h5', sToMinSec(duration).toString());
+        contDiv.appendChild(vidDuration);
+
+      }
+
+    })
+
+  })
+
+}
+
+/*function bla(data) {
+  const videos = data.videos;
+
+  videos.forEach((video) => {
+    if (video.id === videoId) {
+
+      const related = video.related;
+
+    }
+  })
+}*/
 
 

@@ -6,6 +6,9 @@ import {
   element,
   formatDate
 } from '../lib/utils';
+import {
+  loadHelper
+} from '../index';
 
 /**
  * TODO:
@@ -70,7 +73,7 @@ export function loadVideoPage(data) {
   playdiv.appendChild(videoDesc);
 
   // Sendum gögn af videos og fylki af related videos í fall sem birtir þau
-  loadRelatedVideoThumbnails(data, videoForPlayback.related);
+  loadRelatedVideoThumbnails(data, videoId);
 
 }
 
@@ -96,7 +99,7 @@ function getVideoFromId(data, videoId) {
  * Refactora loadVideoList()?
  */
 
-function loadRelatedVideoThumbnails(data, Related) {
+/*function loadRelatedVideoThumbnails(data, Related) {
 
   // Búum til element
   const relatedContainer = document.createElement('div'); //video category
@@ -113,5 +116,39 @@ function loadRelatedVideoThumbnails(data, Related) {
   videoImage = classList.add('video__image');
 
 
+
+}*/
+
+function loadRelatedVideoThumbnails(data, videoId) {
+
+  //console.log("þú ert hér");
+
+  const videos = data.videos;
+  //console.log(videos);
+  //const related = videos.related;
+
+  videos.forEach((video) => {
+    if (video.id == videoId) {
+      //console.log(video.id);
+      //console.log(video.duration);
+
+      //console.log("þú ert hér");
+
+      const related = video.related;
+
+      console.log(related);
+
+      const div = document.querySelector('.videos');
+
+      const catDiv = el('div');
+      catDiv.classList.add('video__category');
+      div.appendChild(catDiv);
+
+      //console.log("þú ert hér");
+
+      loadHelper(videos, related, catDiv);
+
+    }
+  })
 
 }
