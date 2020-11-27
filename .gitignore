@@ -26,5 +26,6 @@ yarn-error.log*
 styles.css
 /dist/*
 /dist
-
+bundle.js.map
+bundle.js
 
