@@ -1,6 +1,85 @@
-#btnForward3sec {
-  background-image: url( 'http://thinkingstiff.com/images/matt.jpg' );
-  background-size: 100px 130px;
-  height: 134px;
-  width: 104px;
+/*
+Fyrir play og payse takkana
+*/
+
+.Playclass-button {
+  display: none;
 }
+
+.Playclass-button-visable {
+  display: block;
+  }
+
+.Pauseclass-button {
+  display: none;
+}
+
+
+.Pauseclass-button-visable {
+  display: block;
+  }
+
+  .Muteclass-button {
+    display: none;
+  }
+  
+  .Muteclass-button-visable {
+    display: block;
+    }
+  
+  .unmuteclass-button {
+    display: none;
+  }
+  
+  
+  .unmuteclass-button-visable {
+    display: block;
+    }
+  
+
+.video {
+  position: relative;
+}
+.currVideo {
+  position: relative;
+}
+
+.video-img {
+  cursor: pointer;
+  height: 50px;
+  margin: 0 0.5rem;
+  width: 50px;
+}
+
+video {
+  cursor: pointer;
+  width: 100%;
+}
+
+.playButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.overlay {
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.overlay-hidden {
+  display: none;
+}
+
+
+#overlay{
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+
