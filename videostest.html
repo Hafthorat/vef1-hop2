@@ -7,45 +7,64 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hópverkefni 2</title>
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Mono:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/styles.css">
   <link rel="stylesheet" href="grid.css">
-  <link rel="stylesheet" href="videotest.css">
-  <link rel="stylesheet" href="videostest.html">
+
+
+
+
 </head>
 
 <body>
   <header class="heading heading--main">
-    <h1 class="heading__title">Flott myndband!</h1>
+    <div class="headercontent">
+      <div class="grid">
+        <div class="row">
+          <div class="col col-12">
+            <h1 class="headingtitle">Flott myndband!</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
-
     <div id="container">
-
-<!--<img id="overlay" class="overlay" src="img/play.svg" alt="playpause" />
- -->
-
-      <div class="video">
-        <img id="overlay" class="overlay" src="img/play.svg" alt="playpause" />
-        <video id="currVideo"><source  src="videos/bunny.mp4" /></video>
-        <img id="overlay" class="overlay" src="img/play.svg" alt="playpause" />
-
+      <div class="grid">
+        <div class="row">
+          <div class="col col-12">
+            <div class="video">
+              <video id="currVideo">
+                <source src="videos/bunny.mp4" />
+              </video>
+              <div class="imidju">
+                <img id="overlay" class="overlay" src="img/play.svg" alt="playpause" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-      <div id="playButtons">
-        <img id="btnBack3sec" class=".Backclass-button-visable video-img" src="./img/back.svg" alt="back3sec" />
-        <img id="btnPlay" class=".Playclass-button-visable video-img" src="./img/play.svg" alt="play" />
-        <img id="btnPause" class="Pauseclass-button video-img" src="./img/pause.svg" alt="pause" />
-        <img id="btnMute" class=".Muteclass-button-visable video-img" src="./img/mute.svg" alt="play" />
-        <img id="btnUnmute" class="unmuteclass-button video-img" src="./img/unmute.svg" alt="pause" />
-        <img id="btnFullscreen" class="Fullscreenclass-button video-img" src="./img/fullscreen.svg"></img>
-        <img id="btnForward3sec" class=".Forwardclass-button-visable video-img" src="./img/next.svg" alt="back3sec" />
+      <div class="grid">
+        <div class="row">
+          <div class="col col-12">
+            <div id="playButtons" class="playButtons">
+              <img id="btnBack3sec" class="Backclass-button-visable videoimg" src="./img/back.svg" alt="back3sec" />
+              <img id="btnPlay" class="Playclass-button-visable videoimg" src="./img/play.svg" alt="play" />
+              <img id="btnPause" class="Pauseclass-button videoimg" src="./img/pause.svg" alt="pause" />
+              <img id="btnMute" class="Muteclass-button-visable videoimg" src="./img/mute.svg" alt="play" />
+              <img id="btnUnmute" class="unmuteclass-button videoimg" src="./img/unmute.svg" alt="pause" />
+              <img id="btnFullscreen" class="Fullscreenclass-button videoimg" src="./img/fullscreen.svg"></img>
+              <img id="btnForward3sec" class="Forwardclass-button-visable videoimg" src="./img/next.svg" alt="back3sec" />
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   </main>
   <!--<script src="./dist/bundle.js"></script>-->
+  <script src="./dist/bundle.js"></script>
   <script src="./src/lib/videostest.js"></script>
+
+
 </body>
 
 </html>
