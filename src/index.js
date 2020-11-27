@@ -104,15 +104,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     const title = category.title;
     const catVideos = category.videos;
 
-    const catDiv = el('div');
-    catDiv.classList.add('video__category');
-    div.appendChild(catDiv);
-
     const heading = el('h2', title);
     heading.classList.add('category__title');
-    catDiv.appendChild(heading);
+    div.appendChild(heading);
+
+    const cataDiv = el('div');
+    cataDiv.classList.add('video__category__outer' , 'row');
+    div.appendChild(cataDiv);
+
+    //const catDiv = el('div');
+    //catDiv.classList.add('video__category__inner', 'col', 'col-4', 'col-sm-12');
+    //cataDiv.appendChild(catDiv);
+
+    //const heading = el('h2', title);
+    //heading.classList.add('category__title');
+    //catDiv.appendChild(heading);
 
     catVideos.forEach((catVideo) => {
+
+      const catDiv = el('div');
+      catDiv.classList.add('video__category__inner', 'col', 'col-4', 'col-sm-12');
+      cataDiv.appendChild(catDiv);
 
       const catVidDiv = el('div');
       catVidDiv.classList.add('video__eachvideo');
@@ -147,14 +159,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           const duration = video.duration;
           const vidDuration = el('h5', sToMinSec(duration).toString());
-          contDiv.appendChild(vidDuration);
+          imgDiv.appendChild(vidDuration);
 
         }
 
       })
 
+
     })
 
+      const catLine = el('hr');
+      catLine.classList.add('line');
+      div.appendChild(catLine);
   })
 
 });

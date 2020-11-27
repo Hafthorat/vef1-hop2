@@ -1,5 +1,60 @@
 @import './config';
 
 .videos {
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
 
+  .video__image {
+    flex: 1;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .video__eachvideo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .video__category__inner {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video__category__outer {
+    justify-content: center;
+  }
+
+  .video__content {
+    padding-top: 0.5rem;
+  }
+
+  h5 {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 15%;
+    color: white;
+    font-size: 1rem;
+    left: 83%;
+    padding: 0.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    position: relative;
+    width: 15%;
+  }
+
+  hr {
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 1px solid;
+    margin: 1em 0;
+    padding: 0;
+    width: 80%;
+    margin-left: 10%;
+  }
 }
