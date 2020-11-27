@@ -8,10 +8,11 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Mono:400,700" rel="stylesheet">
   <link rel="stylesheet" href="grid.css">
   <link rel="stylesheet" href="./dist/styles.css">
+  <link rel="stylesheet" href="videostest.html">
 </head>
 <body>
   <header class="heading heading--main">
-    <h1 class="heading__title">Fallegt myndband!</h1>
+    <h1 class="heading__title">Flott myndband!</h1>
   </header>
   <main>
     <div id="container">
@@ -19,11 +20,15 @@
         <source src="videos/bunny.mp4"/>
       </video>
       <div id="playButtons">
-        <button id="btnPlay">Play</button>
-        <button id="btnPause">Pause</button>
+        <button id="btnBack3sec" img src="img/back.svg">Back 3 sec</button>
+        <button id="btnPlayPause">Play/Pause</button>
+        <button id="btnMuteUnmute">Mute/Unmute</button>
+        <button id="btnFullscreen">Fullscreen</button>
+        <button class="btnForward3sec" id="btnForward3sec">Forward 3 sec</button>
       </div>
     </div>
   </main>
-  <script src="./dist/bundle.js"></script>
+  <!--<script src="./dist/bundle.js"></script>-->
+  <script src="./src/lib/videostest.js"></script>
 </body>
 </html>
