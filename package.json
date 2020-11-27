@@ -6,7 +6,7 @@
   "dependencies": {
     "browser-sync": "^2.26.13",
     "concurrently": "^5.3.0",
-    "stylelint": "^13.8.0"
+    "node-sass": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
@@ -16,7 +16,10 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "rollup": "^2.33.3",
-    "rollup-plugin-babel": "^4.4.0"
+    "rollup-plugin-babel": "^4.4.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "stylelint-config-standard": "^20.0.0"
   },
   "scripts": {
     "eslint": "eslint ./src/**/*.js",
@@ -27,7 +30,8 @@
     "sass": "node-sass --source-map-embed ./src/styles/styles.scss ./dist/styles.css",
     "sass-watch": "node-sass --source-map-embed --watch --recursive src/styles/styles.scss ./dist/styles.css",
     "test": "concurrently npm:eslint npm:stylelint",
-    "dev": "concurrently  npm:sass npm:sass-watch npm:rollup-watch npm:browser-sync"
+    "dev": "concurrently  npm:sass npm:sass-watch npm:rollup-watch npm:browser-sync",
+    "lint": "stylelint styles.scss ./**/*.scss"
   },
   "author": "kristin3va",
   "license": "ISC"
