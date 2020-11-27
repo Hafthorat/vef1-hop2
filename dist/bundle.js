@@ -995,20 +995,20 @@
 	            });
 	          });
 	          /*earthquakes.forEach((quake) => {
-	             const { title, mag, time, url } = quake.properties;
-	             const link = element('a', { href: url, target: '_blank' }, null, 'Skoða nánar');
-	             const markerContent =
+	              const { title, mag, time, url } = quake.properties;
+	              const link = element('a', { href: url, target: '_blank' }, null, 'Skoða nánar');
+	              const markerContent =
 	              el('div',
 	                el('h3', title),
 	                el('p', formatDate(time)),
 	                el('p', link)
 	              );
 	            const marker = createPopup(quake.geometry, markerContent.outerHTML);
-	             const onClick = () => {
+	              const onClick = () => {
 	              marker.openPopup()
 	            };
-	             const li = el('li');
-	             li.appendChild(
+	              const li = el('li');
+	              li.appendChild(
 	              el('div',
 	                el('h2', title),
 	                el('dl',
@@ -1025,12 +1025,12 @@
 	                ),
 	              ),
 	            );
-	             ul.appendChild(li);
+	              ul.appendChild(li);
 	          });*/
 
 	          /*const page = document.querySelector('body');
 	          const isLecturePage = page.classList.contains('lecture-page');
-	           if (isLecturePage) {
+	            if (isLecturePage) {
 	            const lecture = new Lecture();
 	            lecture.load();
 	          } else {
