@@ -3,6 +3,24 @@
 Hópaverkefni 2 í Vefforritun 1 HÍ haust 2020. <br>
 <a href="https://github.com/vefforritun/vef1-2020-h2">Fyrirmæli</a>
 
+Annað hópverkefnið í vefforritun 1 á haustönn 2020. <br/>
+Í hópinum eru;
+
+ * **Bryndís Rósa Sigurpálsdóttir** *brs58@hi.is*,
+ * **Eydís Sjöfn Kjærbo**,  *esk12@hi.is*
+ * **Katarina Kekic**  *kka10@hi.is*
+ * **Kristín Eva Ólafsdóttir** *keo7@hi.is*
+ * **Hafþór Aron Tómasson** *keo7@hi.is*
+
+Notendanöfnin hópameðlima á github eru ;<br/>
+*bryndisrosa97* hjá Bryndísi<br/>
+*eydissjofn* hjá Eydísi <br/>
+*katkek* hjá Katarinu <br/>
+*kristin3va* hjá Kristínu <br/>
+*hafthorat* hjá Hafþór <br/>
+
+
+
 # Verkefnið keyrt
 Við gerð verkefnisins voru ýmis tól nýtt. Því er hægt að keyra verkefnið í þróunarham með því að keyra 
 `NPM install` í skipanalínu i rót verkefnisins, þ.e.a.s. ef notandi hefur t.d. _nodejs_ sett upp í tölvunni. Í **package.json** er hægt að sjá hvaða tól munu þá vera sett upp,
