@@ -951,7 +951,22 @@
 	  return element.apply(void 0, [name, null, null].concat(children));
 	}
 
-	//import Lecture from './lib/lecture';
+	function msToTime(curDate, dateCreated) {
+	  var elapsed = curDate - dateCreated;
+	  var hours = Math.floor(elapsed / (1000 * 60 * 60));
+
+	  if (hours < 24) {
+	    return "Fyrir " + hours + " klukkustundum síðan";
+	  } else if (hours / 24 >= 1 && hours / 24 < 7) {
+	    return "Fyrir " + Math.floor(hours / 24) + " dögum síðan";
+	  } else if (hours / 24 >= 7 && hours / 24 < 30) {
+	    return "Fyrir " + Math.floor(hours / 24 / 7) + " vikum síðan";
+	  } else if (hours / 24 >= 30 && hours / 24 < 365) {
+	    return "Fyrir " + Math.floor(hours / 24 / 30) + " mánuðum síðan";
+	  } else {
+	    return "Fyrir " + Math.floor(hours / 24 / 365) + " árum síðan";
+	  }
+	}
 
 	document.addEventListener('DOMContentLoaded', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
 	  var data, loading, parent, videos, categories, div;
@@ -967,13 +982,13 @@
 	          // Fjarlægjum loading skilaboð eftir að við höfum sótt gögn
 	          loading = document.querySelector('.loading');
 	          parent = loading.parentNode;
-	          parent.removeChild(loading); //kannski óþarfi?
+	          parent.removeChild(loading); // Óþarfi?
 
 	          if (!data) {
 	            parent.appendChild(el('p', 'Villa við að sækja gögn'));
-	          }
+	          } // console.log(data);
 
-	          console.log(data);
+
 	          videos = data.videos;
 	          categories = data.categories;
 	          console.log(videos);
@@ -992,53 +1007,32 @@
 	              var catVidDiv = el('div');
 	              catVidDiv.classList.add('video__eachvideo');
 	              catDiv.appendChild(catVidDiv);
+	              videos.forEach(function (video) {
+	                var id = video.id;
+
+	                if (catVideo === id) {
+	                  var imgDiv = el('div');
+	                  imgDiv.classList.add('video__image');
+	                  catVidDiv.appendChild(imgDiv);
+	                  var contDiv = el('div');
+	                  contDiv.classList.add('video__content');
+	                  catVidDiv.appendChild(contDiv);
+	                  var img = el('img');
+	                  img.setAttribute('src', video.poster);
+	                  imgDiv.appendChild(img);
+	                  var dateCreated = video.created;
+	                  var curDate = new Date().getTime();
+	                  var vidTitle = el('h3', video.title);
+	                  var vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
+	                  console.log(msToTime(curDate, dateCreated).toString());
+	                  contDiv.appendChild(vidTitle);
+	                  contDiv.appendChild(vidCreated);
+	                }
+	              });
 	            });
 	          });
-	          /*earthquakes.forEach((quake) => {
-	             const { title, mag, time, url } = quake.properties;
-	             const link = element('a', { href: url, target: '_blank' }, null, 'Skoða nánar');
-	             const markerContent =
-	              el('div',
-	                el('h3', title),
-	                el('p', formatDate(time)),
-	                el('p', link)
-	              );
-	            const marker = createPopup(quake.geometry, markerContent.outerHTML);
-	             const onClick = () => {
-	              marker.openPopup()
-	            };
-	             const li = el('li');
-	             li.appendChild(
-	              el('div',
-	                el('h2', title),
-	                el('dl',
-	                  el('dt', 'Tími'),
-	                  el('dd', formatDate(time)),
-	                  el('dt', 'Styrkur'),
-	                  el('dd', `${mag} á richter`),
-	                  el('dt', 'Nánar'),
-	                  el('dd', url.toString()),
-	                ),
-	                element('div', { 'class': 'buttons' }, null,
-	                  element('button', null, { 'click': onClick }, 'Sjá á korti'),
-	                  link,
-	                ),
-	              ),
-	            );
-	             ul.appendChild(li);
-	          });*/
 
-	          /*const page = document.querySelector('body');
-	          const isLecturePage = page.classList.contains('lecture-page');
-	           if (isLecturePage) {
-	            const lecture = new Lecture();
-	            lecture.load();
-	          } else {
-	            const list = new List();
-	            list.load();
-	          }*/
-
-	        case 14:
+	        case 13:
 	        case "end":
 	          return _context.stop();
 	      }
