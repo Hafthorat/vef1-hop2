@@ -1,21 +1,17 @@
 import {
-  fetchVideos
-} from '../lib/videos';
-import {
   el,
   element,
   formatDate
-} from '../lib/utils';
+} from './utils';
 import {
   loadHelper
-} from '../index';
+} from './index';
 
 /**
  * TODO:
  * Gera fall sem checkar hvort það hafi tekist að ná í id frá
  *  URL í getVideoFromUrl(), mögulega bara setja try catch í getVideoFromUrl()
  */
-
 
 export function loadVideoPage(data) {
 
@@ -94,59 +90,35 @@ function getVideoFromId(data, videoId) {
   }
 }
 
-/**
- * TODO:
- * Refactora loadVideoList()?
- */
-
-/*function loadRelatedVideoThumbnails(data, Related) {
-
-  // Búum til element
-  const relatedContainer = document.createElement('div'); //video category
-  const relatedTitle = document.createElement('h2');
-  const videoEachVideo = document.createElement('div');
-  const videoImage = document.createElement('div');
-  //cosnt img =
-  const videoContent = document.createElement('div');
-
-  // Setjum class á element
-  relatedContainer.classList.add('video__category');
-  relatedTitle = classList.add('category__title');
-  videoEachVideo = classList.add('video__eachvideo');
-  videoImage = classList.add('video__image');
-
-
-
-}*/
-
 function loadRelatedVideoThumbnails(data, videoId) {
 
-  //console.log("þú ert hér");
-
   const videos = data.videos;
-  //console.log(videos);
-  //const related = videos.related;
 
   videos.forEach((video) => {
     if (video.id == videoId) {
-      //console.log(video.id);
-      //console.log(video.duration);
-
-      //console.log("þú ert hér");
 
       const related = video.related;
 
       console.log(related);
 
-      const div = document.querySelector('.videos');
+      const body = document.querySelector('.video__page');
 
-      const catDiv = el('div');
+      const div = el('div');
+      div.classList.add('videos');
+      body.appendChild(div);
+
+      const title = el('h2', 'Tengd myndbönd');
+      div.appendChild(title);
+
+      /*const catDiv = el('div');
       catDiv.classList.add('video__category');
-      div.appendChild(catDiv);
+      div.appendChild(catDiv);*/
 
-      //console.log("þú ert hér");
+      const cataDiv = el('div');
+      cataDiv.classList.add('video__category__outer' , 'row');
+      div.appendChild(cataDiv);
 
-      loadHelper(videos, related, catDiv);
+      loadHelper(videos, related, cataDiv);
 
     }
   })

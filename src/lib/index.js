@@ -1,6 +1,6 @@
-import { fetchVideos } from './lib/videos';
-import { loadVideoPage } from './lib/play';
-import { el, element, formatDate } from './lib/utils';
+import { fetchVideos } from './videos';
+import { loadVideoPage } from './play';
+import { el, element, formatDate } from './utils';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -83,20 +83,13 @@ function sToMinSec(duration) {
   return min + ":" + sec;
 }
 
-
-
 /**
  * Gætum sett þetta í sitt eigið .js skjal
  */
 function loadVideoList(data) {
-  // console.log(data);
-  // console.log(data);
 
   const videos = data.videos;
   const categories = data.categories;
-
-  // console.log(videos);
-  // console.log(categories);
 
   const div = document.querySelector('.videos');
 
@@ -105,66 +98,31 @@ function loadVideoList(data) {
     const title = category.title;
     const catVideos = category.videos;
 
-    const catDiv = el('div');
+    /*const catDiv = el('div');
     catDiv.classList.add('video__category');
-    div.appendChild(catDiv);
+    div.appendChild(catDiv);*/
 
     const heading = el('h2', title);
     heading.classList.add('category__title');
-    catDiv.appendChild(heading);
+    div.appendChild(heading);
 
-    loadHelper(videos, catVideos, catDiv);
+    const cataDiv = el('div');
+    cataDiv.classList.add('video__category__outer' , 'row');
+    div.appendChild(cataDiv);
 
-    /*catVideos.forEach((catVideo) => {
-
-      const catVidDiv = el('div');
-      catVidDiv.classList.add('video__eachvideo');
-      catDiv.appendChild(catVidDiv);
-
-      videos.forEach((video) => {
-
-        const id = video.id;
-
-        if (catVideo === id) {
-
-          const imgDiv = el('div');
-          imgDiv.classList.add('video__image');
-          catVidDiv.appendChild(imgDiv);
-
-          const contDiv = el('div');
-          contDiv.classList.add('video__content');
-          catVidDiv.appendChild(contDiv);
-
-          const img = el('img');
-          img.setAttribute('src', video.poster);
-          imgDiv.appendChild(img);
-
-          const dateCreated = video.created;
-          const curDate = new Date().getTime();
-
-          const vidTitle = el('h3', video.title);
-          const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
-          //console.log(msToTime(curDate, dateCreated).toString());
-          contDiv.appendChild(vidTitle);
-          contDiv.appendChild(vidCreated);
-
-          const duration = video.duration;
-          const vidDuration = el('h5', sToMinSec(duration).toString());
-          contDiv.appendChild(vidDuration);
-
-        }
-
-      })
-
-    })*/
+    loadHelper(videos, catVideos, cataDiv);
 
   })
 }
 
-//videos = data.videos, videoArray = videos.related eða categories.videos
- export function loadHelper(videos, classVideos, catDiv) {
+
+export function loadHelper(videos, classVideos, cataDiv) {
 
   classVideos.forEach((classVideo) => {
+
+    const catDiv = el('div');
+    catDiv.classList.add('video__category__inner', 'col', 'col-4', 'col-sm-12');
+    cataDiv.appendChild(catDiv);
 
     const catVidDiv = el('div');
     catVidDiv.classList.add('video__eachvideo');
@@ -185,7 +143,7 @@ function loadVideoList(data) {
         catVidDiv.appendChild(contDiv);
 
         const img = el('img');
-        img.setAttribute('src', video.poster);
+        img.setAttribute('src', ( '.' + video.poster.toString()));
         imgDiv.appendChild(img);
 
         const dateCreated = video.created;
@@ -198,7 +156,7 @@ function loadVideoList(data) {
 
         const duration = video.duration;
         const vidDuration = el('h5', sToMinSec(duration).toString());
-        contDiv.appendChild(vidDuration);
+        imgDiv.appendChild(vidDuration);
 
       }
 
@@ -207,17 +165,4 @@ function loadVideoList(data) {
   })
 
 }
-
-/*function bla(data) {
-  const videos = data.videos;
-
-  videos.forEach((video) => {
-    if (video.id === videoId) {
-
-      const related = video.related;
-
-    }
-  })
-}*/
-
 
