@@ -1,11 +1,5 @@
-import {
-  fetchVideos
-} from '../lib/videos';
-import {
-  el,
-  element,
-  formatDate
-} from '../lib/utils';
+import { fetchVideos } from '../lib/videos';
+import { el, element, formatDate } from '../lib/utils';
 
 /**
  * TODO:
