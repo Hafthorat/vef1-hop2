@@ -10,7 +10,7 @@ Annað hópverkefnið í vefforritun 1 á haustönn 2020. <br/>
  * **Eydís Sjöfn Kjærbo**,  *esk12@hi.is*
  * **Katarina Kekic**  *kka10@hi.is*
  * **Kristín Eva Ólafsdóttir** *keo7@hi.is*
- * **Hafþór Aron Tómasson** *keo7@hi.is*
+ * **Hafþór Aron Tómasson** *hat16@hi.is*
 
 Notendanöfnin hópameðlima á github eru ;<br/>
 *bryndisrosa97* hjá Bryndísi<br/>
