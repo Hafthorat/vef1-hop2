@@ -31,7 +31,7 @@ Til að keyra verkefnið er hægt að keyra `NPM run dev`, en það keyrir dev s
 Eftir `NPM run dev` er hægt að opna síðu sem er hýst á localhost, slóðin mun líklegast vera http://localhost:3000 ef það er laust, annars er hægt að sjá hver rétt slóð er í skipanalínunni.
 
 # Uppstilling skráa og gagna
-Í rót verkefnis eru ýmis **config** skjöl sem stilla tól, ritla, plug-in og fleira. Einnig er þar þessi **README** skrá sem og **index.html** sem er upphafsíða vefsíðunnar. Gefnar voru **.gitignore**, .**.gitattributes** og **.editorconfig** og eru þær einnig geymdar í rótinni. 
+Í rót verkefnis eru ýmis **config** skjöl sem stilla tól, ritla, plug-in og fleira. Einnig er þar þessi **README** skrá sem og **index.html** sem er upphafsíða vefsíðunnar. Gefnar voru **.gitignore**, **.gitattributes** og **.editorconfig** og eru þær einnig geymdar í rótinni. 
 
 Skrár sem eru notuð til þróunar á vefsíðunni og eru vöktuð af þróunartólunum eru geymdar í **src** möppu sem liggur í rótinni. Þegar átt er við þær skrár á meðan að þróunarumhverfið er í gangi eru þær túlkaðar í samsavarandi skjöl í **dist** möppu. Þar eru því þær **.js** og **.css** skrár sem vafrinn notar til að gera síðuna.
 
