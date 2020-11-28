@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const currentPage = document.querySelector('body');
 
-  if (currentPage.classList.contains('video__page')){
+  if (currentPage.classList.contains('video-page')){
     console.log('Þetta er video page, til hammó');
     loadVideoPage(data);
   }
 
-  if (currentPage.classList.contains('video__index')) {
+  if (currentPage.classList.contains('video-index')) {
     console.log('Þetta er index.html, til hammó');
     loadVideoList(data);
   }
@@ -100,11 +100,11 @@ function loadVideoList(data) {
     const catVideos = category.videos;
 
     const heading = el('h2', title);
-    heading.classList.add('category__title');
+    heading.classList.add('category-title');
     div.appendChild(heading);
 
     const cataDiv = el('div');
-    cataDiv.classList.add('video__category__outer' , 'row');
+    cataDiv.classList.add('video-category-outer' , 'row');
     div.appendChild(cataDiv);
 
     loadHelper(videos, catVideos, cataDiv);
@@ -121,7 +121,7 @@ export function loadHelper(videos, classVideos, cataDiv) {
   classVideos.forEach((classVideo) => {
 
     const catDiv = el('div');
-    catDiv.classList.add('video__category__inner', 'col', 'col-4', 'col-sm-12');
+    catDiv.classList.add('video-category-inner', 'col', 'col-4', 'col-sm-12');
     cataDiv.appendChild(catDiv);
 
     const ahref = el('a');
@@ -137,7 +137,7 @@ export function loadHelper(videos, classVideos, cataDiv) {
     }
 
     const catVidDiv = el('div');
-    catVidDiv.classList.add('video__eachvideo');
+    catVidDiv.classList.add('video-eachvideo');
 
     ahref.appendChild(catVidDiv);
 
@@ -148,11 +148,11 @@ export function loadHelper(videos, classVideos, cataDiv) {
       if (classVideo === id) {
 
         const imgDiv = el('div');
-        imgDiv.classList.add('video__image');
+        imgDiv.classList.add('video-image');
         catVidDiv.appendChild(imgDiv);
 
         const contDiv = el('div');
-        contDiv.classList.add('video__content');
+        contDiv.classList.add('video-content');
         catVidDiv.appendChild(contDiv);
 
         const img = el('img');

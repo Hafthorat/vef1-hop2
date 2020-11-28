@@ -59,7 +59,7 @@ export function loadVideoPage(data) {
   row.classList.add('row');
   col.classList.add('col', 'col-12');
   video.classList.add('video');
-  currVideo.id = "currVideo";
+  currVideo.id = "curr-video";
   source.setAttribute('src', ( '.' + videoForPlayback.video.toString()));
   imidju.classList.add('imidju');
   overlay.id = 'overlay';
@@ -93,9 +93,9 @@ export function loadVideoPage(data) {
 
   // Setjum class á buttons
   btnBack3sec.classList.add("Backclass-button-visable", "videoimg");
-  btnPlay.classList.add("Playclass-button-visable", "videoimg");
-  btnPause.classList.add("Pauseclass-button", "videoimg");
-  btnMute.classList.add("Muteclass-button-visable", "videoimg");
+  btnPlay.classList.add("playclass-button-visable", "videoimg");
+  btnPause.classList.add("pauseclass-button", "videoimg");
+  btnMute.classList.add("muteclass-button-visable", "videoimg");
   btnUnmute.classList.add("unmuteclass-button", "videoimg");
   btnFullscreen.classList.add("Fullscreenclass-button", "videoimg");
   btnForward3sec.classList.add("Forwardclass-button-visable", "videoimg");
@@ -120,8 +120,8 @@ export function loadVideoPage(data) {
 
 
   // Setjum class og id á element
-  playButtonsContainer.classList.add('playButtons');
-  playButtonsContainer.id = "playButtons";
+  playButtonsContainer.classList.add('play-buttons');
+  playButtonsContainer.id = "play-buttons";
 
 
   /*
@@ -157,12 +157,12 @@ export function loadVideoPage(data) {
   videoDescContainer.appendChild(videoDesc);
 
   /*
-  playdiv.classList.add('play__container');
-  videodiv.classList.add('video__container');
-  playButtons.classList.add('playButtons');
-  videoPlayer.classList.add('video__target');
-  videoh1.classList.add('video__title');
-  videoDesc.classList.add('video__description'); */
+  playdiv.classList.add('play-container');
+  videodiv.classList.add('video-container');
+  play-buttons.classList.add('playButtons');
+  videoPlayer.classList.add('video-target');
+  videoh1.classList.add('video-title');
+  videoDesc.classList.add('video-description'); */
 
   // Setjum viðeigandi attributes á element
 
@@ -206,7 +206,7 @@ export function loadVideoPage(data) {
  *
  */
 
-const currVideoel = document.getElementById('currVideo');
+const currVideoel = document.getElementById('curr-video');
 const btnPlayPauseel = document.getElementById('btnPlay');
 const btnPausePauseel = document.getElementById('btnPause');
 const btnMutemuteel = document.getElementById('btnMute');
@@ -233,20 +233,20 @@ btnForward3secel.addEventListener('click', forward3Sec);
       currVideoel.play();
       overlayel.classList.remove('overlay');
       overlayel.classList.add('overlay-hidden');
-      btnPlayPauseel.classList.remove('Playclass-button-visable');
-    btnPlayPauseel.classList.add('Playclass-button');
-    btnPausePauseel.classList.add('Pauseclass-button-visable');
-    btnPausePauseel.classList.remove('Pauseclass-button');
+      btnPlayPauseel.classList.remove('playclass-button-visable');
+    btnPlayPauseel.classList.add('playclass-button');
+    btnPausePauseel.classList.add('pauseclass-button-visable');
+    btnPausePauseel.classList.remove('pauseclass-button');
 
 
     } else {
       currVideoel.pause();
       overlayel.classList.remove('overlay-hidden');
       overlayel.classList.add('overlay');
-      btnPlayPauseel.classList.add('Playclass-button-visable');
-      btnPlayPauseel.classList.remove('Playclass-button');
-      btnPausePauseel.classList.remove('Pauseclass-button-visable');
-      btnPausePauseel.classList.add('Pauseclass-button');
+      btnPlayPauseel.classList.add('playclass-button-visable');
+      btnPlayPauseel.classList.remove('playclass-button');
+      btnPausePauseel.classList.remove('pauseclass-button-visable');
+      btnPausePauseel.classList.add('pauseclass-button');
     }
   })
 })
@@ -256,15 +256,15 @@ btnForward3secel.addEventListener('click', forward3Sec);
 function muteUnmute() {
   if (currVideoel.muted) {
     currVideoel.muted = false;
-    btnMutemuteel.classList.add('Muteclass-button-visable');
-    btnMutemuteel.classList.remove('Muteclass-button');
+    btnMutemuteel.classList.add('muteclass-button-visable');
+    btnMutemuteel.classList.remove('muteclass-button');
     btnMuteUnmuteel.classList.remove('unmuteclass-button-visable');
     btnMuteUnmuteel.classList.add('unmuteclass-button');
   }
   else {
     currVideoel.muted = true;
-    btnMutemuteel.classList.remove('Muteclass-button-visable');
-    btnMutemuteel.classList.add('Muteclass-button');
+    btnMutemuteel.classList.remove('muteclass-button-visable');
+    btnMutemuteel.classList.add('muteclass-button');
     btnMuteUnmuteel.classList.add('unmuteclass-button-visable');
     btnMuteUnmuteel.classList.remove('unmuteclass-button');
   }
@@ -348,7 +348,7 @@ function loadRelatedVideoThumbnails(data, videoId) {
 
       console.log(related);
 
-      const body = document.querySelector('.video__page');
+      const body = document.querySelector('.video-page');
 
       const div = el('div');
       div.classList.add('videos');
@@ -358,11 +358,11 @@ function loadRelatedVideoThumbnails(data, videoId) {
       div.appendChild(title);
 
       /*const catDiv = el('div');
-      catDiv.classList.add('video__category');
+      catDiv.classList.add('video-category');
       div.appendChild(catDiv);*/
 
       const cataDiv = el('div');
-      cataDiv.classList.add('video__category__outer' , 'row');
+      cataDiv.classList.add('video-category-outer' , 'row');
       div.appendChild(cataDiv);
 
       loadHelper(videos, related, cataDiv);

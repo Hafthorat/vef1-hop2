@@ -6,13 +6,13 @@
     width: 100%;
   }
 
-  .video__image {
+  .video-image {
     flex: 1;
     object-fit: cover;
     overflow: hidden;
   }
 
-  .video__eachvideo {
+  .video-eachvideo {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -20,17 +20,17 @@
     margin-bottom: 2rem;
   }
 
-  .video__category__inner {
+  .video-category-inner {
     align-items: stretch;
     display: flex;
     flex-direction: column;
   }
 
-  .video__category__outer {
-    justify-content: center;
+  .video-category-outer {
+    justify-content: flex-start;
   }
 
-  .video__content {
+  .video-content {
     padding-top: 0.5rem;
   }
 

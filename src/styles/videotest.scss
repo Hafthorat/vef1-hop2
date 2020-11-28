@@ -1,7 +1,7 @@
 @import './config';
 
 /*
-Fyrir play og payse takkana
+Fyrir play og pause takkana
 */
 .videotest {
   width: 100%;
@@ -21,27 +21,27 @@ Fyrir play og payse takkana
   align-items: center;
 }
 
-.Playclass-button {
+.playclass-button {
   display: none;
 }
 
-.Playclass-button-visable {
+.playclass-button-visable {
   display: block;
 }
 
-.Pauseclass-button {
+.pauseclass-button {
   display: none;
 }
 
-.Pauseclass-button-visable {
+.pauseclass-button-visable {
   display: block;
 }
 
-.Muteclass-button {
+.muteclass-button {
   display: none;
 }
 
-.Muteclass-button-visable {
+.muteclass-button-visable {
   display: block;
 }
 
@@ -60,7 +60,7 @@ Fyrir play og payse takkana
   display: block;
 }
 
-.currVideo {
+.curr-video {
   position: relative;
 }
 
@@ -76,7 +76,7 @@ video {
   width: 100%;
 }
 
-.playButtons {
+.play-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
