@@ -3,25 +3,23 @@
 /*
 Fyrir play og payse takkana
 */
-.videotest{
+.videotest {
   width: 100%;
 }
 
 .headercontent {
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .headingtitle {
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
 
 .video {
   align-items: center;
 }
-
-
 
 .Playclass-button {
   display: none;
@@ -29,41 +27,38 @@ Fyrir play og payse takkana
 
 .Playclass-button-visable {
   display: block;
-  }
+}
 
 .Pauseclass-button {
   display: none;
 }
 
-
 .Pauseclass-button-visable {
   display: block;
-  }
+}
 
-  .Muteclass-button {
-    display: none;
-  }
-  
-  .Muteclass-button-visable {
-    display: block;
-    }
-  
-  .unmuteclass-button {
-    display: none;
-  }
+.Muteclass-button {
+  display: none;
+}
 
-  .videoimg {
+.Muteclass-button-visable {
+  display: block;
+}
+
+.unmuteclass-button {
+  display: none;
+}
+
+.videoimg {
   cursor: pointer;
   height: 50px;
   margin: 0 0.5rem;
   width: 50px;
-  }
-  
-  
-  .unmuteclass-button-visable {
-    display: block;
-    }
-  
+}
+
+.unmuteclass-button-visable {
+  display: block;
+}
 
 .currVideo {
   position: relative;
@@ -75,8 +70,6 @@ Fyrir play og payse takkana
   margin: 0 0.5rem;
   width: 50px;
 }
-
-
 
 video {
   cursor: pointer;
@@ -91,17 +84,13 @@ video {
 }
 
 .overlay {
+  bottom: 66%;
   height: 50px;
   position: absolute;
-   width: 100%;
-   bottom: 54%;
-   right: 0%;
-
+  right: 0%;
+  width: 100%;
 }
 
 .overlay-hidden {
   display: none;
 }
-
-
-

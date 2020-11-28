@@ -31,7 +31,7 @@
     "sass-watch": "node-sass --source-map-embed --watch --recursive src/styles/styles.scss ./dist/styles.css",
     "test": "concurrently npm:eslint npm:stylelint",
     "dev": "concurrently  npm:sass npm:sass-watch npm:rollup-watch npm:browser-sync",
-    "lint": "stylelint styles.scss ./**/*.scss"
+    "lint": "stylelint --fix styles.scss ./**/*.scss"
   },
   "author": "kristin3va",
   "license": "ISC"

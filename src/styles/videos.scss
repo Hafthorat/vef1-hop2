@@ -37,7 +37,7 @@
   h5 {
     background-color: rgba(0, 0, 0, 0.5);
     bottom: 15%;
-    color: white;
+    color: #fff;
     font-size: 1rem;
     left: 83%;
     padding: 0.2rem;
@@ -47,22 +47,10 @@
     width: 15%;
   }
 
-  hr {
-    display: block;
-    height: 3px;
-    border: 0;
-    border-top: 1px solid;
-    margin: 1em 0;
-    padding: 0;
-    width: 80%;
-    margin-left: 10%;
+  .video-img {
+    cursor: pointer;
+    height: 50px;
+    margin: 0 0.5rem;
+    width: 50px;
   }
-
-    .video-img {
-        cursor: pointer;
-        height: 50px;
-        margin: 0 0.5rem;
-        width: 50px;
-      }
-
 }

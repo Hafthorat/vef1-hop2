@@ -1,6 +1,7 @@
 import { fetchVideos } from './videos';
 import { loadVideoPage } from './play';
 import { el, element, formatDate } from './utils';
+//import { muteUnmute, openFullscreen, back3Sec, forward3Sec} from './videostest';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -115,7 +116,6 @@ function loadVideoList(data) {
   })
 }
 
-
 export function loadHelper(videos, classVideos, cataDiv) {
 
   classVideos.forEach((classVideo) => {
@@ -124,9 +124,22 @@ export function loadHelper(videos, classVideos, cataDiv) {
     catDiv.classList.add('video__category__inner', 'col', 'col-4', 'col-sm-12');
     cataDiv.appendChild(catDiv);
 
+    const ahref = el('a');
+
+    catDiv.appendChild(ahref);
+
+     if ( window.location.href.indexOf("pages") > -1 ) {
+      console.log('ÞETTAER VIRKARA')
+      ahref.setAttribute('href', ('video.html?id=' + classVideo ));
+    }
+    else {
+      ahref.setAttribute('href', ('pages/video.html?id='  + classVideo));
+    }
+
     const catVidDiv = el('div');
     catVidDiv.classList.add('video__eachvideo');
-    catDiv.appendChild(catVidDiv);
+
+    ahref.appendChild(catVidDiv);
 
     videos.forEach((video) => {
 
@@ -144,12 +157,15 @@ export function loadHelper(videos, classVideos, cataDiv) {
 
         const img = el('img');
         img.setAttribute('src', ( '.' + video.poster.toString()));
+
         imgDiv.appendChild(img);
 
         const dateCreated = video.created;
         const curDate = new Date().getTime();
 
         const vidTitle = el('h3', video.title);
+        //
+
         const vidCreated = el('h4', msToTime(curDate, dateCreated).toString());
         contDiv.appendChild(vidTitle);
         contDiv.appendChild(vidCreated);
