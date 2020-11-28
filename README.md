@@ -38,16 +38,3 @@ Skrár sem eru notuð til þróunar á vefsíðunni og eru vöktuð af þróunar
 Í **src** möppunni eru möppurnar **lib**, sem geymir **.js** skrár og **styles** sem geymir **.scss**. Allar **.scss** skrár eru teknar saman í **styles.scss** svo að _node_sass_ geti tekið þær saman í **dist/styles.css**. 
 
 Myndbönd til afspilunar eru geymdar í **videos** möppu sem er í rótinni. Inntaksgögn eru þess fyrir utan í **videos.json** skrá í rótinni. 
-
-
-<br>
-<br>
-<br>
-
-### TODO:
-* Linta
-  * Athuga hvort `stylelint-config-sass-guidelines` og `stylelint-config-standard` séu ekki öruggleg uppsett. 
-* Tengja allt saman
-* Update-a README.md
-* Skalanleiki vefs
-* Tengja videosíðu við hvert video
